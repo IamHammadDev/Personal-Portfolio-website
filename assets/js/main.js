@@ -7,7 +7,7 @@ navClose = document.getElementById("nav-close");
 /* Validate if constant exists */
 if (navToggle) {
   navToggle.addEventListener("click", () => {
-    navToggle.classList.add("show-menu");
+    navMenu.classList.add("show-menu");
   });
 }
 
@@ -15,10 +15,9 @@ if (navToggle) {
 /* Validate if constant exists */
 if (navClose) {
   navClose.addEventListener("click", () => {
-    navClose.classList.remove("show-menu");
+    navMenu.classList.remove("show-menu");
   });
 }
-
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll(".nav__link");
 
@@ -30,8 +29,32 @@ const linkAction = () => {
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
 /*=============== SWIPER PROJECTS ===============*/
-
+let swiperProjects = new Swiper(".projects__container", {
+  grabCursor: true,
+  loop: true,
+  spaceBetween: 24,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  breakpoints: {
+    1200: {
+      slidesPerView: 2,
+      spaceBetween: -56,
+    },
+  },
+});
 /*=============== SWIPER TESTIMONIAL ===============*/
+let swiperTestimonial = new Swiper(".testimonial__container", {
+  grabCursor: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 /*=============== EMAIL JS ===============*/
 
