@@ -79,12 +79,14 @@ const sendEmail = (e) => {
     contactMessage.textContent = "Write all the input fields";
   } else {
     // serviceID - templateID - #form - publicKey
-    emailjs.sendEmail(
+    emailjs
+      .sendEmail(
         "service_l38myau",
         "template_eh39ejl",
         "#contact-form",
         "DlX6YMOvEekY4rUG5"
-      ).then(
+      )
+      .then(
         () => {
           // Show message and add color
           contactMessage.classList.add("color-blue");
@@ -172,6 +174,33 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
 /*=============== CHANGE BACKGROUND HEADER ===============*/
+const scrollHeader = () => {
+  const header = document.getElementById("header");
+  // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
+  this.scrollY >= 50
+    ? header.classList.add("bg-header")
+    : header.classList.remove("bg-header");
+};
+window.addEventListener("scroll", scrollHeader);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+  origin: "top",
+  distance: "60px",
+  duration: 2500,
+  delay: 400,
+  // reset: true /* Animation Repeat */
+});
+sr.reveal(
+  `.home__data, .projects__container, .testimonial__container, .footer__container`
+);
+sr.reveal(`.home__info div`, { delay: 600, origin: "bottom", interval: 100 });
+sr.reveal(`.skills__content:nth-child(1), .contact__content:nth-child(1)`, {
+  origin: "left",
+});
+sr.reveal(`.skills__content:nth-child(2), .contact__content:nth-child(2)`, {
+  origin: "right",
+});
+sr.reveal(`.qualification__content, .services__card`, { interval: 100 });
