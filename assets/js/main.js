@@ -91,7 +91,6 @@ const sendEmail = (e) => {
           // Show message and add color
           contactMessage.classList.add("color-blue");
           contactMessage.textContent = "Message sent!";
-
           // Remove message after five seconds
           setTimeout(() => {
             contactMessage.textContent = "";
@@ -191,7 +190,7 @@ const sr = ScrollReveal({
   distance: "60px",
   duration: 2500,
   delay: 400,
-  // reset: true /* Animation Repeat */
+  reset: true /* Animation Repeat */
 });
 sr.reveal(
   `.home__data, .projects__container, .testimonial__container, .footer__container`
